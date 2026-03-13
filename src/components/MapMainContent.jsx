@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
-import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const containerStyle = {
+    width: '100%',
+    height: '100%'
+};
 
-
-
-function MapMainContent({ google }) {
+function MapMainContent() {
     const [practitioners, setPractitioners] = useState([]);
     const [mapCenter, setMapCenter] = useState({ lat: 0, lng: 0 });
 
     const locationa = useLocation();
     const doctorsData = locationa?.state?.data || null;
-    console.log(doctorsData)
+    console.log(doctorsData);
 
     useEffect(() => {
         const geocodeLocation = async () => {
@@ -27,15 +29,12 @@ function MapMainContent({ google }) {
                 }
                 if (geocodeData.results && geocodeData.results.length > 0) {
                     const { lat, lng } = geocodeData.results[0].geometry.location;
-                    console.log(lat, lng)
+                    console.log(lat, lng);
                     setMapCenter({ lat, lng });
                     setPractitioners([
-                        // Replace this with real data fetched from your backend
                         { id: 1, name: 'Dr. John Doe', location: { lat, lng } },
-                        // ... more practitioners
                     ]);
                 } else {
-                    // Handle the case where geocoding returns no results
                     console.error('No results found for the provided location.');
                 }
             } catch (error) {
@@ -46,43 +45,36 @@ function MapMainContent({ google }) {
         if (doctorsData.city) {
             geocodeLocation();
         }
-    }, [google, doctorsData.specialty, doctorsData.city]);
+    }, [doctorsData.specialty, doctorsData.city]);
 
     return (
-        <>
-            <div className='row'>
-                <div className='col-md-4'>
-                    <div className="practitioner-list">
-                        {doctorsData.practitioners.map((practitioner) => (
-                            <div className="practitioner-item" key={practitioner.id}>
-                                <h4>{practitioner.firstName}</h4>
-                                <img src={practitioner.imageUrl} alt={practitioner.firstName} />
-                                <div className="practitioner-details">
-                                    <p>{practitioner.specialty}</p>
-                                    <p>{practitioner.location}</p>
-                                </div>
-                                <button className="view-profile-button">View Profile & Availability</button>
+        <div className='row'>
+            <div className='col-md-4'>
+                <div className="practitioner-list">
+                    {doctorsData.practitioners.map((practitioner) => (
+                        <div className="practitioner-item" key={practitioner.id}>
+                            <h4>{practitioner.firstName}</h4>
+                            <img src={practitioner.imageUrl} alt={practitioner.firstName} />
+                            <div className="practitioner-details">
+                                <p>{practitioner.specialty}</p>
+                                <p>{practitioner.location}</p>
                             </div>
-                        ))}
-                    </div>
-                </div>
-                <div className='col-md-8'>
-                    <Map google={google} zoom={14} center={mapCenter}>
-                        {practitioners.map((practitioner) => (
-                            <Marker
-                                key={practitioner.id}
-                                position={practitioner.location}
-                            />
-                        ))}
-                    </Map>
+                            <button className="view-profile-button">View Profile &amp; Availability</button>
+                        </div>
+                    ))}
                 </div>
             </div>
-        </>
+            <div className='col-md-8'>
+                <LoadScript googleMapsApiKey="AIzaSyDOWL_-VZyW4pqE3i_xB8Gk3KpWiD0dVjA">
+                    <GoogleMap mapContainerStyle={containerStyle} center={mapCenter} zoom={14}>
+                        {practitioners.map((practitioner) => (
+                            <Marker key={practitioner.id} position={practitioner.location} />
+                        ))}
+                    </GoogleMap>
+                </LoadScript>
+            </div>
+        </div>
     );
 }
 
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyDOWL_-VZyW4pqE3i_xB8Gk3KpWiD0dVjA'
-})(MapMainContent);
-
-
+export default MapMainContent;
