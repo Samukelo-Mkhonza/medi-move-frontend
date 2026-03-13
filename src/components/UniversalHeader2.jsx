@@ -1,7 +1,7 @@
 // Header.js
 import React from 'react';
 import './Header';
-import { useNavigate } from 'react-router-dom';
+import 'react-router-dom';
 
 
 function UniversalHeader2() {

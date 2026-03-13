@@ -1,5 +1,4 @@
 import React from 'react';
-import OtherPagesHeader from '../components/OtherPagesHeader';
 import Footer from '../components/Footer';
 // import LoginMainContent from '../components/LoginMainContent';
 import SignUpMainContent from '../components/SignUpMainContent';

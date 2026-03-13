@@ -7,9 +7,9 @@ function Footer() {
             <div className="footer-content">
                 <p>© 2024 Medi Move. All rights reserved.</p>
                 <div className="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
-                    <a href="#">Contact</a>
+                    <button className="link-button">Privacy Policy</button>
+                    <button className="link-button">Terms of Use</button>
+                    <button className="link-button">Contact</button>
                 </div>
             </div>
         </footer>

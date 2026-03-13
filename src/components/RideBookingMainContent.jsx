@@ -16,7 +16,7 @@ function RideBookingMainContent() {
     const handleLoginClick = () => {
         navigate('/doctordashboard');
     };
-    const [availableDrivers, setAvailableDrivers] = useState([]);
+    const [availableDrivers] = useState([]);
 
     useEffect(() => {
         if (formData.date && formData.time) {

@@ -21,13 +21,13 @@ function OtherPagesHeader()
             <nav className="nav">
                 <ul className="nav-list">
                     <li><a href="/">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><button className="nav-link">About</button></li>
+                    <li><button className="nav-link">Services</button></li>
+                    <li><button className="nav-link">Contact</button></li>
                 </ul>
             </nav>
             <div className="header-cta">
-                <a onClick={handleLoginClick} className="button-link">Sign Up</a>
+                <button onClick={handleLoginClick} className="button-link">Sign Up</button>
             </div>
         </header>
 );

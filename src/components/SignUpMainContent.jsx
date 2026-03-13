@@ -18,8 +18,8 @@ function SignUpMainContent() {
     return (
         <div className="main-content">
             <div className="sign-in-page">
-                <a href="" className="button-link" onClick={handleDriverLoginClick}>Sign Up as Driver</a>
-                <a href="" className="button-link" onClick={handleDoctorLoginClick}>Sign Up as Practitioner</a>
+                <button className="button-link" onClick={handleDriverLoginClick}>Sign Up as Driver</button>
+                <button className="button-link" onClick={handleDoctorLoginClick}>Sign Up as Practitioner</button>
             </div>
         </div>
 

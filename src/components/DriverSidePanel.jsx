@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import 'react-router-dom';
 
 const DriverSidePanel = ({ isOpen, onClose }) => {
 
@@ -19,7 +19,6 @@ const DriverSidePanel = ({ isOpen, onClose }) => {
                 <li><a href="#option1">Appointments</a></li>
                 <li><a href="#option2">Calender</a></li>
                 <li><a href="#option3">Patient Management</a></li>
-                <li><a href="#option3"></a></li>
                 {/* Add more options as needed */}
             </ul>
         </div>

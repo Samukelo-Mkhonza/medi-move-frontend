@@ -20,7 +20,7 @@ function MapHeader() {
                         <option value="general-practice">Dentist</option>
                     </select>
                     <input type="text" className="search-input" placeholder="Enter street address, suburb or city" />
-                    <a href = "" className="searchbutton-link">Search</a>
+                    <button className="searchbutton-link">Search</button>
                 </div>
                 </ul>
             </nav>
