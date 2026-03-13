@@ -4,7 +4,7 @@ import 'react-router-dom';
 const SidePanel = ({ isOpen, onClose }) => {
 
     const panelClass = isOpen ? 'side-panel open' : 'side-panel';
-    const logoUrl = 'https://medimovebucket.s3.eu-west-1.amazonaws.com/medimove-logo.png';
+    const logoUrl = 'https://img.icons8.com/color/96/ambulance.png';
     return (
         <div className={panelClass}>
             <div className="panel-header">

@@ -16,7 +16,7 @@ function UniversalHeader2() {
             
                         <div className="logo">
                 <a href="/">
-                    <img src="https://medimovebucket.s3.eu-west-1.amazonaws.com/medimove-logo.png" alt="Logo" />
+                    <img src="https://img.icons8.com/color/96/ambulance.png" alt="Logo" />
                 </a>
                 
             </div>
